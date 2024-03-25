@@ -370,11 +370,6 @@ function addEvent(title, date, time) {
     const eventDate = date;
     const eventTime = time;
 
-    if (eventTitle === "" || eventTime === "") {
-        alert("Please fill all the fields");
-        return;
-    }
-
     const timeArr = eventTime.split(":");
     const dateArr = eventDate.split("-");
     const dayOfEvent = parseInt(dateArr[2]);
@@ -422,5 +417,7 @@ function addEvent(title, date, time) {
     }
 
     console.log("Modified Array:", eventsArr);
+
+    alert(eventTitle.concat(" has been added to your calendar"));
 
 };
