@@ -8,29 +8,63 @@
 
 <body>
 
-    <h1>Athletics</h1>
+    <h1>ATHLETICS</h1>
 
-    <a href="bball.html">
-        <img src="./Images/bball.jpg" width="300">
-    </a>
-    <a href="volleyball.html">
-        <img src="./Images/volleyball.png" width="300">
-    </a>
-    <a href="soccer.html">
-        <img src="./Images/soccer.jpg" width="300">
-    </a>
-    <a href="rugby.html">
-        <img src="./Images/rugby.jpg" width="300">
-    </a>
+
+    <img src="./Images/bball.jpg" width="300" class="collapsible"></img>
+    <div class="content">
+        <h3 id="bballName">TWU vs UVIC: Basketball</h3>
+        <p id="bballDate">2024-03-25</p>
+        <p id="bballTime">1:30</p>
+        <p>Support our TWU Spartans against the Vics</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('bballName').textContent, document.getElementById('bballDate').textContent, document.getElementById('bballTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
+
+    <img src="./Images/volleyball.png" width="300" class="collapsible">
+    <div class="content">
+        <h3 id="vballName">TWU vs UVIC: Volleyball</h3>
+        <p id="vballDate">2024-03-26</p>
+        <p id="vballTime">1:30</p>
+        <p>Support our TWU Spartans against the Vics</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('vballName').textContent, document.getElementById('vballDate').textContent, document.getElementById('vballTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
+
+    <img src="./Images/soccer.jpg" width="300" class="collapsible"></img>
+    <div class="content">
+        <h3 id="soccerName">TWU vs UVIC: Soccer</h3>
+        <p id="soccerballDate">2024-03-26</p>
+        <p id="soccerballTime">1:30</p>
+        <p>Support our TWU Spartans against the Vics</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('soccerballName').textContent, document.getElementById('soccerballDate').textContent, document.getElementById('soccerballTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
+
+    <img src="./Images/rugby.jpg" width="300" class="collapsible"></img>
+    <div class="content">
+        <h3 id="rugbyName">TWU vs UVIC: Rugby</h3>
+        <p id="rugbyballDate">2024-03-26</p>
+        <p id="rugbyballTime">1:30</p>
+        <p>Support our TWU Spartans against the Vics</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('rugbyballName').textContent, document.getElementById('rugbyballDate').textContent, document.getElementById('rugbyballTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
+
 
     <a href="EventCategories.html">
         <button>Back</button>
     </a>
 
-
-    <a href="newEvent.html">
-        <button>+</button>
-    </a>
+    <script src="calendar.js"></script>
 </body>
 
 </html>

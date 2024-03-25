@@ -7,19 +7,25 @@
 </head>
 
 <body>
+    <h1>CHAPEL</h1>
 
-
-
-
-    <p>this is the chapel page</p>
+    <img src="./Images/worship.jpeg" width="300" class="collapsible"></img>
+    <div class="content">
+        <h3 id="worshipName">Easter Worship</h3>
+        <p id="worshipDate">2024-03-29</p>
+        <p id="worshipTime">11:30</p>
+        <p>Come join us in worship this Friday to celebrate Easter!</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('worshipName').textContent, document.getElementById('worshipDate').textContent, document.getElementById('worshipTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
 
     <a href="EventCategories.html">
         <button>Back</button>
     </a>
 
-    <a href="newEvent.html">
-        <button>+</button>
-    </a>
+    <script src="calendar.js"></script>
 
 </body>
 

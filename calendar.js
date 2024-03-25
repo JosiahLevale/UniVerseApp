@@ -16,6 +16,21 @@
 // Design home page - Josiah
 // Bento Box design
 
+var coll = document.getElementsByClassName("collapsible");
+var l;
+
+for (l = 0; l < coll.length; l++) {
+    coll[l].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+}
+
 const calendar = document.querySelector(".calendar"),
     date = document.querySelector(".date"),
     daysContainer = document.querySelector(".days"),
@@ -24,8 +39,7 @@ const calendar = document.querySelector(".calendar"),
     addEvenSubmit = document.querySelector(".add-event-btn"),
     eventDay = document.querySelector(".event-day"),
     eventDate = document.querySelector(".event-date"),
-    eventsContainer = document.querySelector(".events"),
-    addEventSubmit = document.querySelector(".add-event-btn");
+    eventsContainer = document.querySelector(".events");
 
 let today = new Date();
 let activeDay;
@@ -48,26 +62,28 @@ const months = [
     "December"
 ];
 
-//defult array
-const eventsArr = [
-    {
-        day: 19,
-        month: 3,
-        year: 2024,
-        events: [
-            {
-                title: "Event 1: RELS 110",
-                time: "1:30 AM"
-            },
-            {
-                title: "Event 2: FNDC 101",
-                time: "12:00 PM"
-            },
-        ],
+// localStorage.removeItem('eventsArr');
 
-    },
+// Check if array exists in localStorage
+let savedArray = localStorage.getItem('eventsArr');
 
-];
+// Initialize array if it doesn't exist
+let eventsArr = savedArray ? JSON.parse(savedArray) : [{
+    day: 19,
+    month: 3,
+    year: 2024,
+    events: [
+        {
+            title: "Event 1: RELS 110",
+            time: "1:30 AM"
+        },
+        {
+            title: "Event 2: FNDC 101",
+            time: "12:00 PM"
+        },
+    ],
+
+},];
 
 
 // function to add days to the calendar
@@ -318,6 +334,7 @@ addEvenSubmit.addEventListener("click", () => {
                 eventAdded = true;
             }
         });
+        localStorage.setItem('eventsArr', JSON.stringify(eventsArr));
     }
 
     // create new form if event array or current day has no event
@@ -328,6 +345,7 @@ addEvenSubmit.addEventListener("click", () => {
             year: year,
             events: [newEvent],
         });
+        localStorage.setItem('eventsArr', JSON.stringify(eventsArr));
     }
 
     //remove letters from the add event form
@@ -345,3 +363,64 @@ addEvenSubmit.addEventListener("click", () => {
 function goBack() {
     window.history.back();
 }
+
+//function to add events to calendar
+function addEvent(title, date, time) {
+    const eventTitle = title;
+    const eventDate = date;
+    const eventTime = time;
+
+    if (eventTitle === "" || eventTime === "") {
+        alert("Please fill all the fields");
+        return;
+    }
+
+    const timeArr = eventTime.split(":");
+    const dateArr = eventDate.split("-");
+    const dayOfEvent = parseInt(dateArr[2]);
+    const monthOfEvent = parseInt(dateArr[1]);
+    const yearOfEvent = parseInt(dateArr[0]);
+
+    if (
+        timeArr[0] > 23 || timeArr[1] > 59
+    ) {
+        alert("Wrong format (Ex: 01:30)")
+    }
+
+    const newEvent = {
+        title: eventTitle,
+        time: eventTime,
+    };
+
+    let eventAdded = false;
+
+    //check if eventsarr is not empty
+    if (eventsArr.length > 0) {
+        //check if the current day already has any event the add to that
+        eventsArr.forEach((item) => {
+            if (
+                item.day === dayOfEvent &&
+                item.month === monthOfEvent &&
+                item.year === yearOfEvent
+            ) {
+                item.events.push(newEvent);
+                eventAdded = true;
+            }
+        });
+        localStorage.setItem('eventsArr', JSON.stringify(eventsArr));
+    }
+
+    // create new form if event array or current day has no event
+    if (!eventAdded) {
+        eventsArr.push({
+            day: dayOfEvent,
+            month: monthOfEvent,
+            year: yearOfEvent,
+            events: [newEvent],
+        });
+        localStorage.setItem('eventsArr', JSON.stringify(eventsArr));
+    }
+
+    console.log("Modified Array:", eventsArr);
+
+};

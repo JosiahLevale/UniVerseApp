@@ -7,9 +7,31 @@
 </head>
 
 <body>
+    <h1>CLUBS</h1>
 
+    <img src="./Images/chess.jpeg" width="300" class="collapsible"></img>
+    <div class="content">
+        <h3 id="chessName">Chess Club</h3>
+        <p id="chessDate">2024-03-27</p>
+        <p id="chessTime">1:30</p>
+        <p>Come test you skills at chess this Thursday! Food and drinks will be there</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('chessName').textContent, document.getElementById('chessDate').textContent, document.getElementById('chessTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
 
-    <p>this is the clubs page</p>
+    <img src="./Images/swim.jpg" width="300" class="collapsible"></img>
+    <div class="content">
+        <h3 id="swimName">Swim Club</h3>
+        <p id="swimDate">2024-03-29</p>
+        <p id="swimTime">1:30</p>
+        <p>Come get better at swimming with us!</p>
+        <button class=".add-event-btn-from-event"
+            onclick="addEvent(document.getElementById('swimName').textContent, document.getElementById('swimDate').textContent, document.getElementById('swimTime').textContent)">Add
+            to
+            calendar</button>
+    </div>
 
     <a href="EventCategories.html">
         <button>Back</button>
@@ -19,7 +41,7 @@
         <button>+</button>
     </a>
 
-
+    <script src="calendar.js"></script>
 </body>
 
 </html>
