@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var items = document.querySelectorAll('.item');
 
-    items.forEach(function(item) {
-        item.addEventListener('click', function() {
+    items.forEach(function (item) {
+        item.addEventListener('click', function () {
             this.classList.toggle('expanded');
 
             var itemId = this.getAttribute('id');
@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function goBack() {
+    window.history.back();
+}
 
 
 const notifications = [
@@ -34,7 +38,7 @@ function showNotification(message) {
 
     setTimeout(() => {
         notification.remove();
-    }, 15000); 
+    }, 15000);
 }
 
 function cycleNotifications() {
