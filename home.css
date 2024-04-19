@@ -4,6 +4,7 @@ body {
     color: white;
     font-size: 40px;
     white-space: pre-line;
+    overflow: hidden;
 }
 
 .container {
@@ -11,6 +12,7 @@ body {
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 15px;
+    max-height: 80vh;
 }
 
 .item {
