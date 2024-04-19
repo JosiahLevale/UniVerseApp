@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 50px;
 }
 
 button {
@@ -56,8 +57,8 @@ img {
     display: flex;
     border: 2px solid White;
     margin: 16px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 50px;
+    margin-right: 50px;
     opacity: 0.6;
 }
 
